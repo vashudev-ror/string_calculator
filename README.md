@@ -82,6 +82,26 @@ count = calculator.called_count
 - Developed following Test Driven Development (TDD) principles.
 - Enforces code quality using RuboCop.
 
+## Code Coverage
+
+Code coverage is measured using [SimpleCov](https://github.com/simplecov-ruby/simplecov).
+
+To generate a coverage report:
+
+```bash
+bundle exec rspec
+```
+
+After running the tests, open the report in your browser:
+
+```bash
+open coverage/index.html   # For macOS
+# or
+xdg-open coverage/index.html  # For Linux
+```
+
+This will display an HTML report showing how much of your code is covered by tests.
+
 ## Contributing
 
 Contributions are welcome! Please follow these steps:
