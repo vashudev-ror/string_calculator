@@ -7,11 +7,16 @@ class StringCalculator
     @call_count += 1
     return 0 if numbers.empty?
 
-    delimiter = /,|\n/
     if numbers.start_with?('//')
       header, numbers = numbers.split("\n", 2)
-      custom_delimiter = header[2..]
-      delimiter = Regexp.union(delimiter, Regexp.escape(custom_delimiter))
+      delimiters = if header.include?('[')
+                     header.scan(/\[([^\]]+)\]/).flatten
+                   else
+                     [header[2..]]
+                   end
+      delimiter = Regexp.union(delimiters)
+    else
+      delimiter = /,|\n/
     end
 
     nums = numbers.split(delimiter).map(&:to_i)
