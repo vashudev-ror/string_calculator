@@ -23,5 +23,9 @@ RSpec.describe StringCalculator do
     it 'supports newlines as delimiter' do
       expect(calculator.add("1\n2,3")).to eq(6)
     end
+
+    it 'returns the sum when a custom delimiter is provided' do
+      expect(calculator.add("//;\n1;2")).to eq(3)
+    end
   end
 end
