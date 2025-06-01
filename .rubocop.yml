@@ -1,8 +1,7 @@
 # .rubocop.yml
-
-inherit_from:
-  - rubocop_todo.yml
-
+plugins:
+  - rubocop-rspec
+  
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.0
@@ -36,5 +35,6 @@ Naming/FileName:
     - 'spec/**/*'
 
 RSpec:
-  AllCops:
-    TargetRubyVersion: 3.2
+  Enabled: true
+  Include:
+    - spec/**/*_spec.rb
