@@ -31,5 +31,11 @@ RSpec.describe StringCalculator do
     it 'raises an exception for negative numbers with the number in the message' do
       expect { calculator.add('1,-2,3,-4') }.to raise_error('negatives not allowed -2,-4')
     end
+
+    it 'tracks how many times add is called' do
+      calculator.add('1,2')
+      calculator.add('3')
+      expect(calculator.called_count).to eq(2)
+    end
   end
 end
